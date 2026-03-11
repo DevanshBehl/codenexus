@@ -1,4 +1,15 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log("server is running");
+const express_1 = __importDefault(require("express"));
+const env_1 = require("./lib/env");
+const app = (0, express_1.default)();
+app.get("/", (req, res) => {
+    res.status(200).json({
+        "message": "server running successfully"
+    });
+});
+app.listen(env_1.ENV.port);
 //# sourceMappingURL=server.js.map
